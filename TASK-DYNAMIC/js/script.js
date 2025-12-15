@@ -1,7 +1,18 @@
 // js/script.js
 
 let items = [
-    { desc: "Hi Crome Turbine Blades (1 set consists of 4 Blades)", qty: "1 Set", price: "2100" }
+    { desc: "Hi Crome Turbine Blades (1 set consists of 4 Blades)", qty: "1 Set", price: "2100"},
+        { desc: "Control Gauge", qty: "1 No", price: "1200" },
+    { desc: "Curved Plate/Liner", qty: "1 No", price: "2800" },
+    { desc: "Narrow Plate / Liner (140 x 330mm)", qty: "1 No", price: "2200" },
+    { desc: "Guide Plate / Liner (400mm X 200 mm)", qty: "1 No", price: "3200" },
+    { desc: "Guide Plate / Liner (150 mm X 300 mm)", qty: "1 No", price: "2300" },
+    { desc: "Impeller 14mm/16mm", qty: "1 No", price: "720" },
+    { desc: "Impeller -Disc spacer", qty: "1 No", price: "310" },
+    { desc: "Wall plate (700 x 400mm)", qty: "1 No", price: "7500" },
+    { desc: "Bearing End plate", qty: "1 No", price: "4800" },
+    { desc: "Feeding End plate", qty: "1 No", price: "5900" }
+     
 ];
 
 function updateUI() {

@@ -1,0 +1,202 @@
+/* --- RESET --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+body {
+    background: #525659;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #000;
+}
+
+.print-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+}
+
+/* --- THE A4 PAGE --- */
+.page {
+    width: 210mm;
+    height: 296mm;
+    background: white;
+    padding: 10mm 15mm;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+}
+
+/* --- WATERMARK --- */
+.watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    opacity: 0.1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* --- HEADER SECTION --- */
+/* Wrapper to keep header items together */
+.header-wrapper {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 90px;
+}
+
+.logo-left, .logo-right {
+    width: 120px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-left img, .logo-right img { max-width: 100%; max-height: 100%; }
+.logo-right img { border: 1px solid #000; }
+
+.header-info { text-align: center; flex: 1; padding: 0 10px; }
+.header-info h1 { font-size: 26px; font-weight: 900; color: #1a3c6e; margin-bottom: 2px; }
+.header-info h2 { font-size: 13px; font-weight: 800; color: #ff6600; letter-spacing: 1px; margin-bottom: 5px; }
+.header-info .addr { font-size: 10px; font-weight: 600; color: #333; margin-bottom: 2px; }
+.header-info .gst { font-size: 11px; font-weight: 700; color: #1a3c6e; margin-bottom: 2px; }
+.header-info .gst span { font-weight: 800; }
+.header-info .contact { font-size: 10px; font-weight: 700; color: #1a3c6e; }
+
+.blue-line {
+    width: 100%;
+    height: 3px;
+    background: #1a3c6e;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+/* --- META ROW (Quote No & Date) --- */
+.meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px; /* Spacing before content starts */
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee; /* Subtle separator */
+}
+.meta-row b { font-weight: 800; }
+
+/* --- MAIN CONTENT --- */
+.content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+/* Page 1 Specifics */
+.recipient-box { margin-bottom: 20px; }
+.attn-label { font-size: 14px; margin-bottom: 2px; }
+.address-text { font-size: 15px; line-height: 1.4; }
+
+.salutation { font-weight: 600; font-size: 15px; margin-bottom: 15px; }
+
+.subject-box {
+    text-align: center;
+    font-weight: 800;
+    text-decoration: underline;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.letter-body p {
+    text-align: justify;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Signature Section - Right Aligned */
+.signature-section {
+    margin-top: auto;
+    margin-bottom: 30px;
+    align-self: flex-end; /* Pushes block to right */
+    width: 320px;
+    text-align: left; /* Text inside block is left aligned, but block is on right */
+}
+.signature-section p { font-size: 13px; margin-bottom: 5px; }
+.sign-gap { height: 50px; }
+.sign-line { width: 100%; height: 2px; background: #000; margin-bottom: 5px; } /* Line above Auth Signatory */
+.auth-title { font-weight: 800; text-align: center; font-size: 13px; }
+
+/* Page 2 Specifics */
+.second-page-sub { margin-top: 0; margin-bottom: 20px; }
+
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th { background: #e6e6e6; border: 1px solid #000; padding: 10px 5px; font-weight: 800; text-align: center; }
+.data-table td { border: 1px solid #000; padding: 10px 8px; vertical-align: top; background: rgba(255,255,255,0.8); }
+.center { text-align: center; }
+.right { text-align: right; }
+.desc-cell ul { margin: 5px 0 0 20px; padding: 0; }
+.desc-cell li { margin-bottom: 4px; }
+
+/* Page 3 Specifics */
+.terms-container {
+    border: 2px solid #000;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(255,255,255,0.8);
+}
+.terms-title { text-decoration: underline; font-size: 14px; font-weight: 800; margin-bottom: 10px; }
+.terms-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+.terms-table td { padding: 5px 0; vertical-align: top; border-bottom: 1px solid #eee; }
+.t-key { width: 160px; font-weight: 700; }
+.t-sep { width: 20px; text-align: center; font-weight: 700; }
+.t-val { font-weight: 600; }
+.closing-text { margin-top: 30px; font-size: 14px; }
+
+/* --- FOOTER --- */
+.site-footer {
+    text-align: center;
+    flex-shrink: 0;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+}
+/* Matches PDF Red/Brown Line */
+.footer-line { width: 100%; height: 4px; background: #800000; margin-bottom: 5px; } 
+.f-orange { color: #ff6600; font-weight: 900; font-size: 11px; margin-bottom: 2px; }
+.f-black { color: #000; font-weight: 900; font-size: 11px; }
+.page-count { text-align: right; font-size: 10px; font-weight: bold; margin-top: 2px; }
+
+/* --- PRINT RULES --- */
+@media print {
+    @page { size: A4; margin: 0; }
+    body { background: white; margin: 0; padding: 0; }
+    .print-container { display: block; padding: 0; margin: 0; }
+    .page {
+        box-shadow: none;
+        margin: 0;
+        border: none;
+        page-break-after: always;
+        width: 210mm;
+        height: 296mm;
+    }
+    .page:last-child { page-break-after: auto; }
+}
